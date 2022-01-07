@@ -5,4 +5,7 @@ from django.http import HttpResponse
 
 def home_page(request):
     #return HttpResponse("Hello World")
-    return render(request,"vaccine/home_page.html")
+    return render(request,"home_page.html")
+
+def vaccine_reg(request):
+    return render(request,"vaccine/vaccine_reg.html")
