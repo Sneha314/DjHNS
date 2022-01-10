@@ -14,7 +14,7 @@ class VaccineNeedy(models.Model):
     age = models.IntegerField()
     place = models.CharField(max_length=50)
     refid = models.BigIntegerField()
-    needed_vaccine = models.ForeignKey(Vaccines, on_delete=models.SET_DEFAULT, null=True, default="civishield")
+    needed_vaccine = models.ForeignKey(Vaccines, on_delete=models.SET_DEFAULT, null=True, default="covishield")
 
     def __str__(self):
         return self.name

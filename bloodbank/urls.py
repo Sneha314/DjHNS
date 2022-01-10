@@ -15,12 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from vaccine.views import home_page
+from .views import blood_stock
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', home_page),
-    path('vaccine/', include(('vaccine.urls', 'vaccine'), namespace= "vaccine")),
-    path('bloodbank/', include(('bloodbank.urls', 'bloodbank'), namespace = 'bloodbank')),
-    path('users/', include(('users.urls', 'users'), namespace = 'users')),
+    path('stock', blood_stock, name="blood_stock"),
 ]
