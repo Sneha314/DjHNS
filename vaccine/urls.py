@@ -18,6 +18,6 @@ from django.urls import path, include
 from .views import vaccine_reg, vaccine_stock
 
 urlpatterns = [
-    path('register', vaccine_reg, name="vaccine_reg"),
-    path('stock', vaccine_stock, name="vaccine_stock"),
+    path('register', vaccine_reg, name="vaccine-reg"),
+    path('stock', vaccine_stock, name="vaccine-stock"),
 ]

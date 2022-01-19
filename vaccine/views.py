@@ -12,9 +12,6 @@ def vaccine_stock(request):
     return render(request,"vaccine/vaccine_stock.html")
 
 
-
-
-
 def vaccine_reg(request):
     form = VaccineRegForm()
     if request.method == "POST":
