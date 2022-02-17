@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import registrations
+from .views import registrations,vaccine_needys,blood_donors
 
 urlpatterns = [
     path('registrations', registrations, name="registrations"),
+    path('vaccine_needys', vaccine_needys, name="vaccine-needys"),
+    path('blood_donors', blood_donors, name="blood-donors"),
 ]

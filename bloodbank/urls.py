@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import blood_stock, donor_reg
+from .views import blood_stock, bloodbank_about, donor_reg
 
 urlpatterns = [
     path('stock', blood_stock, name="blood-stock"),
-    path('register', donor_reg, name="donor-reg")
+    path('register', donor_reg, name="donor-reg"),
+    path('bloodbank_about', bloodbank_about, name="bloodbank-about"),
 ]

@@ -8,13 +8,16 @@ from .models import BloodDonor
 def blood_stock(request):
     return render(request,"bloodbank/blood_stock.html")
 
+def bloodbank_about(request):
+    return render(request,"bloodbank/bloodbank_about.html")
+
 def donor_reg(request):
     form = DonorRegForm()
     if request.method == "POST":
         form = DonorRegForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('home')
 
     context = {
         "form": form

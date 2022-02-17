@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views as user_view
 from django.contrib.auth import views as auth_views
-from vaccine.views import home_page
+from .views import home_page, stock_management
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home_page, name='home'),
+    path('stock_management/', stock_management, name='stock-management'),
     path('register', user_view.register, name='user-register'),
     path('', auth_views.LoginView.as_view(template_name='user/login.html'), name='user-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='user/logout.html'), name='user-logout'),

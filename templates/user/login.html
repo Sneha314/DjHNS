@@ -35,7 +35,10 @@
                 <form method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <input class="btn btn-success" type="submit" value="Login">
+                    <input class="btn btn-success" type="submit" value="Login"><br><br>
+                    <div class="text-center mb-4">
+                        <h2 class="text-l font-bold pb-2">Don't have an Account?  <a class="px-3 py-1.5 bg-gray-800 text-gray-200 text-s font-semibold rounded hover:bg-gray-800" href="{% url 'user-register' %}">Register</a></h2>
+                    </div>
                 </form>
             </div>
         </div>

@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import vaccine_reg, vaccine_stock
+from .views import vaccine_about, vaccine_reg, vaccine_stock
 
 urlpatterns = [
     path('register', vaccine_reg, name="vaccine-reg"),
     path('stock', vaccine_stock, name="vaccine-stock"),
+    path('vaccine_about', vaccine_about, name="vaccine-about"),
 ]
