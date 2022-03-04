@@ -39,10 +39,10 @@
                         var myChart1 = new Chart(ctx, {
                             type: 'pie',
                             data: {
-                                labels: [{% for product in product %} '{{product.name}}', {% endfor %}],
+                                labels: [{% for s in stock %} '{{s.vaccine_name}}', {% endfor %}],
                         datasets: [{
                             label: 'Number of Products',
-                            data: [{% for product in product %} {{ product.quantity }}, {% endfor %}],
+                            data: [{% for s in stock %} {{ s.count }}, {% endfor %}],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(54, 162, 235, 1)',
@@ -123,7 +123,12 @@
             </div>
         </div>
     </div>
-
+    <div>
+        <a href="{% url 'stocks:create-vaccinestock' %}"> Create </a>
+        {% for s in stock %}
+        <a href="{% url 'stocks:update-vaccinestock' s.id %}">{{ s.vaccine_name }}</a>
+        {% endfor %}
+    </div>
 
     {% endblock %}
     </div>
