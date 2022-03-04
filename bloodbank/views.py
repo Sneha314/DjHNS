@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import DonorRegForm
 from .models import BloodDonor
+from stocks.models import BloodStock
 
 # Create your views here.
 
 def blood_stock(request):
-    return render(request,"bloodbank/blood_stock.html")
+    blood_stock = BloodStock.objects.all()
+    return render(request,"bloodbank/blood_stock.html", context={'stock':blood_stock})
 
 def bloodbank_about(request):
     return render(request,"bloodbank/bloodbank_about.html")

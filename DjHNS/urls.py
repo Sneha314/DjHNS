@@ -29,4 +29,5 @@ urlpatterns = [
     path('vaccine/', include(('vaccine.urls', 'vaccine'), namespace= "vaccine")),
     path('bloodbank/', include(('bloodbank.urls', 'bloodbank'), namespace = 'bloodbank')),
     path('users/', include(('users.urls', 'users'), namespace = 'users')),
+    path('stocks/', include('stocks.urls', namespace='stocks')),
 ]

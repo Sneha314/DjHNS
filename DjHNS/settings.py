@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'vaccine',
     'bloodbank',
     'users',
+    'stocks',
     'crispy_forms',
     "crispy_tailwind",
+
 ]
 
 MIDDLEWARE = [
