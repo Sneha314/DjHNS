@@ -23,10 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', home_page, name='home'),
     path('stock_management/', stock_management, name='stock-management'),
-    path('register', user_view.register, name='user-register'),
+    path('register/', user_view.register, name='user-register'),
     path('', auth_views.LoginView.as_view(template_name='user/login.html'), name='user-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='user/logout.html'), name='user-logout'),
     path('vaccine/', include(('vaccine.urls', 'vaccine'), namespace= "vaccine")),
     path('bloodbank/', include(('bloodbank.urls', 'bloodbank'), namespace = 'bloodbank')),
     path('users/', include(('users.urls', 'users'), namespace = 'users')),
+    path('stocks/', include(('stocks.urls', 'stocks'), namespace = 'stocks')),
 ]

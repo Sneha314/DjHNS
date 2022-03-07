@@ -9,24 +9,25 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('bloodbank', '0001_initial'),
+        ('vaccine', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BloodGroup',
+            name='VaccineStock',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=20)),
+                ('count', models.IntegerField(default=0)),
+                ('vaccine_name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='vaccine.vaccines')),
             ],
         ),
         migrations.CreateModel(
-            name='BloodDonor',
+            name='BloodStock',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=30)),
-                ('age', models.IntegerField()),
-                ('place', models.CharField(max_length=50)),
-                ('blood_group', models.ForeignKey(default='covishield', null=True, on_delete=django.db.models.deletion.SET_DEFAULT, to='bloodbank.bloodgroup')),
+                ('count', models.IntegerField(default=0)),
+                ('blood_group', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bloodbank.bloodgroup')),
             ],
         ),
     ]
