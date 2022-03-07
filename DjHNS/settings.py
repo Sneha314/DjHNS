@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'stocks',
     'crispy_forms',
     "crispy_tailwind",
+
 ]
 
 MIDDLEWARE = [
