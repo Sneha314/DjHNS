@@ -8,7 +8,14 @@ from stocks.models import BloodStock
 
 def blood_stock(request):
     blood_stock = BloodStock.objects.all()
-    return render(request,"bloodbank/blood_stock.html", context={'stock':blood_stock})
+    donars = BloodDonor.objects.all()
+    groups = {}
+    for donar in donars:
+        if donar.blood_group in groups.keys():
+            groups[donar.blood_group] += 1
+        else:
+            groups[donar.blood_group] = 1
+    return render(request,"bloodbank/blood_stock.html", context={'stock':blood_stock, 'groups' : groups})
 
 def bloodbank_about(request):
     return render(request,"bloodbank/bloodbank_about.html")
