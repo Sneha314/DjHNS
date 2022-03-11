@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import VaccineRegForm
 from .models import VaccineNeedy
 from stocks.models import VaccineStock
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -19,10 +20,11 @@ def vaccine_stock(request):
 
     return render(request,"vaccine/vaccine_stock.html", context={'stock':vaccine_stock, 'groups' : groups})
 
+@login_required
 def vaccine_about(request):
     return render(request,"vaccine/vaccine_about.html")
 
-
+@login_required
 def vaccine_reg(request):
     form = VaccineRegForm()
     if request.method == "POST":

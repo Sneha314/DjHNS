@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+
+from DjHNS.settings import LOGIN_REDIRECT_URL
 from .forms import DonorRegForm
 from .models import BloodDonor
 from stocks.models import BloodStock
@@ -17,9 +21,11 @@ def blood_stock(request):
             groups[donar.blood_group] = 1
     return render(request,"bloodbank/blood_stock.html", context={'stock':blood_stock, 'groups' : groups})
 
+@login_required
 def bloodbank_about(request):
     return render(request,"bloodbank/bloodbank_about.html")
 
+@login_required
 def donor_reg(request):
     form = DonorRegForm()
     if request.method == "POST":

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -8,6 +9,7 @@ from django.core.mail import send_mail
 def load_page(request):
     return render(request,"loading.html")
 
+@login_required
 def home_page(request):
     return render(request,"home_page.html")
 
